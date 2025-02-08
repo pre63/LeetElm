@@ -16,21 +16,7 @@ Use List.foldl and the Elm Dict API to implement this function.
 aggregateSales : List ( String, Float ) -> Dict String Float
 aggregateSales sales =
     -- Write your solution here using List.foldl and Dict functions
-    sales
-        |> List.foldl
-            (\( product, amount ) dict ->
-                Dict.update product
-                    (\currentAmount ->
-                        case currentAmount of
-                            Just x ->
-                                Just (x + amount)
-
-                            Nothing ->
-                                Just amount
-                    )
-                    dict
-            )
-            Dict.empty
+    Dict.empty
 
 
 tests : List ( Bool, String )

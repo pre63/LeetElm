@@ -1,4 +1,4 @@
-module Challenges.ODE exposing (eulerMethod, solution, tests)
+module Challenges.ODE exposing (solution)
 
 import Debug
 import Types exposing (Solution)

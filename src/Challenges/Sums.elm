@@ -27,6 +27,7 @@ transformAndSum nums =
             )
         |> List.sum
 
+
 tests : List ( Bool, String )
 tests =
     [ ( transformAndSum [ 1, 2, 3, 4 ] == 48, "Test 1: input [1,2,3,4], expected 48, got " ++ Debug.toString (transformAndSum [ 1, 2, 3, 4 ]) )
