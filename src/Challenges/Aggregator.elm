@@ -1,9 +1,7 @@
-module Challenges.Aggregator exposing (..)
+module Challenges.Aggregator exposing (solution)
 
 import Debug
 import Dict exposing (Dict)
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (style)
 import Types exposing (Solution)
 
 
@@ -18,7 +16,21 @@ Use List.foldl and the Elm Dict API to implement this function.
 aggregateSales : List ( String, Float ) -> Dict String Float
 aggregateSales sales =
     -- Write your solution here using List.foldl and Dict functions
-    Dict.empty
+    sales
+        |> List.foldl
+            (\( product, amount ) dict ->
+                Dict.update product
+                    (\currentAmount ->
+                        case currentAmount of
+                            Just x ->
+                                Just (x + amount)
+
+                            Nothing ->
+                                Just amount
+                    )
+                    dict
+            )
+            Dict.empty
 
 
 tests : List ( Bool, String )

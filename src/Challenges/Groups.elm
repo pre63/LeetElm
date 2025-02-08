@@ -1,9 +1,7 @@
-module Challenges.Groups exposing (..)
+module Challenges.Groups exposing (solution)
 
 import Debug
 import Dict exposing (Dict)
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (style)
 import Types exposing (Solution)
 
 
@@ -62,6 +60,7 @@ tests =
     ]
 
 
+solution : Solution
 solution =
     { title = "Group Items by Category"
     , data = tests

@@ -1,8 +1,6 @@
-module Challenges.Sums exposing (..)
+module Challenges.Sums exposing (solution)
 
 import Debug
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (style)
 import Types exposing (Solution)
 
 
@@ -27,8 +25,7 @@ transformAndSum nums =
                 else
                     x ^ 3
             )
-        |> List.foldl (\x acc -> x + acc) 0
-
+        |> List.sum
 
 tests : List ( Bool, String )
 tests =

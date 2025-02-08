@@ -1,9 +1,10 @@
-module Main exposing (main)
+module Main exposing (Model, Msg, ToggleSolution, main)
 
 import Browser
 import Challenges.Aggregator
 import Challenges.Formatter
 import Challenges.Groups
+import Challenges.Statistics
 import Challenges.Sums
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
@@ -55,6 +56,7 @@ init =
     , ( False, Challenges.Groups.solution )
     , ( False, Challenges.Formatter.solution )
     , ( False, Challenges.Aggregator.solution )
+    , ( False, Challenges.Statistics.solution )
     ]
 
 
@@ -124,6 +126,7 @@ view model =
     div [ style "margin" "20px" ] (List.map viewOne model)
 
 
+main : Program () Model Msg
 main =
     Browser.sandbox
         { init = init

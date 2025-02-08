@@ -1,11 +1,8 @@
-module Challenges.Formatter exposing (..)
+module Challenges.Formatter exposing (solution)
 
 import Debug
 import Dict exposing (Dict)
-import Html exposing (Html, div, text)
-import Html.Attributes exposing (style)
 import Json.Encode as Encode
-import List exposing (foldl, map, sort, sortBy)
 import String exposing (fromInt, length, toUpper)
 import Types exposing (Solution)
 
@@ -44,7 +41,7 @@ groupAndFormat words =
         sortedGroups =
             grouped
                 |> Dict.toList
-                |> List.map (\( k, ws ) -> ( k, sort (List.map toUpper ws) ))
+                |> List.map (\( k, ws ) -> ( k, List.sort (List.map toUpper ws) ))
                 |> List.sortBy
                     (\( k, _ ) ->
                         case String.toInt k of
